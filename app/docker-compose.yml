@@ -1,1 +1,21 @@
-
+version: '3.5'
+services:
+   myadmin:
+     image: registry.mcs.psu.ac.th/myadmin:latest
+     restart: always
+     ports:
+       - "172.18.111.54:801:80"
+   stdweb:
+     image: registry.mcs.psu.ac.th/lamp:latest
+     restart: always
+     volumes:
+       - /var/www/html/student:/var/www/html
+     ports:
+       - "172.18.111.54:803:80"
+   booking:
+     image: registry.mcs.psu.ac.th/lamp:latest
+     restart: always
+     volumes:
+       - /var/www/html/booking:/var/www/html
+     ports:
+       - "172.18.111.54:804:80"
